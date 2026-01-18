@@ -40,6 +40,16 @@
         
         .tap-effect:active { transform: scale(0.98); opacity: 0.9; }
         
+        /* Form Specific Styles */
+        .radio-label { cursor: pointer; transition: all 0.2s; }
+        .radio-input:checked + .radio-label { 
+            background-color: #FEF2F2; 
+            border-color: #D90429; 
+            color: #D90429;
+            box-shadow: 0 4px 6px -1px rgba(217, 4, 41, 0.1);
+        }
+        .radio-input:checked + .radio-label i { color: #D90429; }
+        
         /* Marquee Animation for Partners */
         .marquee-container { overflow: hidden; white-space: nowrap; position: relative; }
         .marquee-content { display: inline-block; animation: scroll 20s linear infinite; }
@@ -65,7 +75,7 @@
                 <div class="flex items-center gap-2 text-gray-600 hover:text-brand-red cursor-pointer transition">
                     <i class="ph-fill ph-phone text-brand-red text-lg"></i> 83061 32320
                 </div>
-                <a href="https://wa.me/918306132320?text=Hello%20Javed%2C%20I%20need%20a%20vehicle%20insurance%20quote." class="bg-brand-red text-white px-6 py-2.5 rounded-full hover:bg-brand-darkRed transition shadow-lg shadow-red-500/30">
+                <a href="#quote-form" class="bg-brand-red text-white px-6 py-2.5 rounded-full hover:bg-brand-darkRed transition shadow-lg shadow-red-500/30">
                     Get Fast Quote
                 </a>
             </div>
@@ -91,10 +101,13 @@
             <p class="text-base md:text-lg text-red-100 mb-6 md:mb-8 max-w-xl mx-auto font-medium leading-relaxed px-2">
                 Get your Bike, Car, or Commercial vehicle insured quickly. We are here to help you choose the right plan.
             </p>
+            <a href="#quote-form" class="inline-block md:hidden bg-brand-yellow text-brand-darkRed px-8 py-3 rounded-xl font-bold text-sm shadow-lg hover:bg-white transition tap-effect">
+                Fill Form Now
+            </a>
         </div>
     </section>
 
-    <!-- TRUST BADGES / PARTNERS STRIP (New Idea 1) -->
+    <!-- TRUST BADGES / PARTNERS STRIP -->
     <div class="bg-white py-4 border-b border-gray-200 overflow-hidden relative z-10 -mt-6 mx-4 rounded-xl shadow-lg md:mx-auto md:max-w-4xl md:-mt-10 md:rounded-2xl">
         <p class="text-center text-[10px] uppercase font-bold text-gray-400 tracking-widest mb-2">We work with top brands</p>
         <div class="marquee-container">
@@ -115,10 +128,6 @@
                     </div>
                     <h3 class="text-xl md:text-2xl font-bold text-gray-900 mb-2">Bike Insurance</h3>
                     <p class="text-gray-500 text-sm mb-6 md:mb-8 px-2">Expired policy? Get instant 3rd party or comprehensive cover.</p>
-                    <a href="https://wa.me/918306132320?text=Hello%20Javed%2C%20I%20want%20a%20quote%20for%20my%20*BIKE*%20Insurance." 
-                       class="tap-effect w-full py-3.5 bg-gray-900 text-white rounded-xl font-bold text-sm md:text-base hover:bg-brand-yellow hover:text-black transition flex items-center justify-center gap-2">
-                       <i class="ph-fill ph-whatsapp-logo text-green-400 text-lg"></i> Get Bike Quote
-                    </a>
                 </div>
 
                 <div class="service-card bg-white p-6 md:p-8 rounded-2xl md:rounded-3xl shadow-xl border-t-4 border-brand-red flex flex-col items-center text-center md:-translate-y-4 relative overflow-hidden">
@@ -128,10 +137,6 @@
                     </div>
                     <h3 class="text-2xl md:text-3xl font-extrabold text-gray-900 mb-2">Car Insurance</h3>
                     <p class="text-gray-500 text-sm mb-6 md:mb-8 px-2">Complete coverage for your car with road-side assistance options.</p>
-                    <a href="https://wa.me/918306132320?text=Hello%20Javed%2C%20I%20want%20a%20quote%20for%20my%20*CAR*%20Insurance." 
-                       class="tap-effect w-full py-3.5 bg-brand-red text-white rounded-xl font-bold text-sm md:text-base hover:bg-brand-darkRed transition flex items-center justify-center gap-2 shadow-lg shadow-red-500/30">
-                       <i class="ph-fill ph-whatsapp-logo text-xl"></i> Get Car Quote
-                    </a>
                 </div>
 
                 <div class="service-card bg-white p-6 md:p-8 rounded-2xl md:rounded-3xl shadow-lg border-t-4 border-brand-yellow flex flex-col items-center text-center">
@@ -140,21 +145,107 @@
                     </div>
                     <h3 class="text-xl md:text-2xl font-bold text-gray-900 mb-2">Commercial</h3>
                     <p class="text-gray-500 text-sm mb-6 md:mb-8 px-2">Pickup, Auto, Truck, or Taxi. Secure your business vehicles today.</p>
-                    <a href="https://wa.me/918306132320?text=Hello%20Javed%2C%20I%20need%20details%20for%20*COMMERCIAL%20VEHICLE*%20Insurance." 
-                       class="tap-effect w-full py-3.5 bg-gray-900 text-white rounded-xl font-bold text-sm md:text-base hover:bg-brand-yellow hover:text-black transition flex items-center justify-center gap-2">
-                       <i class="ph-fill ph-whatsapp-logo text-green-400 text-lg"></i> Get Commercial Quote
-                    </a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- DOCUMENTS REQUIRED (New Idea 2) -->
+    <!-- QUOTE FORM SECTION -->
+    <section id="quote-form" class="px-4 mb-12">
+        <div class="max-w-xl mx-auto bg-white rounded-3xl shadow-xl overflow-hidden border border-gray-100">
+            <div class="bg-gray-900 p-6 text-center">
+                <h2 class="text-2xl font-extrabold text-white mb-1">Get Instant Quote</h2>
+                <p class="text-gray-400 text-sm">Fill details below & send on WhatsApp</p>
+            </div>
+            
+            <div class="p-6 md:p-8 space-y-6">
+                <!-- Vehicle Type -->
+                <div>
+                    <label class="block text-xs font-bold text-gray-500 uppercase tracking-wider mb-3">Select Vehicle Type</label>
+                    <div class="grid grid-cols-3 gap-3">
+                        <!-- Bike -->
+                        <label class="relative">
+                            <input type="radio" name="vehicleType" value="Bike" class="radio-input absolute opacity-0 w-0 h-0" checked>
+                            <div class="radio-label border-2 border-gray-200 rounded-xl p-3 flex flex-col items-center justify-center gap-2 h-24 hover:border-gray-300">
+                                <i class="ph-fill ph-motorcycle text-2xl text-gray-400"></i>
+                                <span class="text-xs font-bold">Bike</span>
+                            </div>
+                        </label>
+                        <!-- Car -->
+                        <label class="relative">
+                            <input type="radio" name="vehicleType" value="Car" class="radio-input absolute opacity-0 w-0 h-0">
+                            <div class="radio-label border-2 border-gray-200 rounded-xl p-3 flex flex-col items-center justify-center gap-2 h-24 hover:border-gray-300">
+                                <i class="ph-fill ph-car text-2xl text-gray-400"></i>
+                                <span class="text-xs font-bold">Car</span>
+                            </div>
+                        </label>
+                        <!-- Commercial -->
+                        <label class="relative">
+                            <input type="radio" name="vehicleType" value="Commercial Vehicle" class="radio-input absolute opacity-0 w-0 h-0">
+                            <div class="radio-label border-2 border-gray-200 rounded-xl p-3 flex flex-col items-center justify-center gap-2 h-24 hover:border-gray-300">
+                                <i class="ph-fill ph-truck text-2xl text-gray-400"></i>
+                                <span class="text-[10px] font-bold text-center leading-tight">Commercial<br>Vehicle</span>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Text Inputs -->
+                <div class="space-y-4">
+                    <div>
+                        <label class="block text-xs font-bold text-gray-500 uppercase tracking-wider mb-1.5">Full Name</label>
+                        <input type="text" id="fullName" placeholder="Enter your name" class="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 font-semibold focus:outline-none focus:border-brand-red focus:ring-1 focus:ring-brand-red transition">
+                    </div>
+                    
+                    <div class="grid grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-xs font-bold text-gray-500 uppercase tracking-wider mb-1.5">Mobile Number</label>
+                            <input type="tel" id="mobile" placeholder="9876543210" class="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 font-semibold focus:outline-none focus:border-brand-red focus:ring-1 focus:ring-brand-red transition">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-gray-500 uppercase tracking-wider mb-1.5">Date of Birth</label>
+                            <input type="date" id="dob" class="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 font-semibold text-gray-600 focus:outline-none focus:border-brand-red focus:ring-1 focus:ring-brand-red transition">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Old Policy -->
+                <div>
+                    <label class="block text-xs font-bold text-gray-500 uppercase tracking-wider mb-3">Do you have Old Policy?</label>
+                    <div class="flex gap-4">
+                        <label class="flex-1 relative">
+                            <input type="radio" name="oldPolicy" value="YES" class="radio-input absolute opacity-0 w-0 h-0">
+                            <div class="radio-label border-2 border-gray-200 rounded-xl py-3 text-center font-bold text-sm hover:border-gray-300">
+                                YES
+                            </div>
+                        </label>
+                        <label class="flex-1 relative">
+                            <input type="radio" name="oldPolicy" value="NO" class="radio-input absolute opacity-0 w-0 h-0" checked>
+                            <div class="radio-label border-2 border-gray-200 rounded-xl py-3 text-center font-bold text-sm hover:border-gray-300">
+                                NO
+                            </div>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Send Button -->
+                <button onclick="sendToWhatsApp()" class="w-full bg-[#25D366] hover:bg-[#20bd5a] text-white font-extrabold text-lg py-4 rounded-xl shadow-lg shadow-green-500/30 flex items-center justify-center gap-2 transform transition active:scale-95">
+                    <i class="ph-fill ph-whatsapp-logo text-2xl"></i>
+                    Send via WhatsApp
+                </button>
+                
+                <p id="errorMsg" class="text-red-500 text-xs text-center font-bold hidden">Please fill all Name and Mobile details!</p>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- DOCUMENTS REQUIRED -->
     <section class="px-4 mb-12">
         <div class="max-w-2xl mx-auto bg-blue-50 border border-blue-100 rounded-2xl p-6">
             <h3 class="text-lg md:text-xl font-extrabold text-blue-900 mb-4 flex items-center gap-2">
                 <i class="ph-fill ph-file-text text-blue-600"></i>
-                Documents needed for Quote
+                Or Send Documents Photo
             </h3>
             <div class="space-y-3">
                 <div class="flex items-center gap-3 bg-white p-3 rounded-lg shadow-sm">
@@ -176,7 +267,7 @@
         </div>
     </section>
 
-    <!-- WHY CHOOSE US vs ONLINE (New Idea 3) -->
+    <!-- WHY CHOOSE US vs ONLINE -->
     <section class="py-10 bg-white border-t border-gray-100">
         <div class="max-w-4xl mx-auto px-5">
             <h2 class="text-2xl font-extrabold text-gray-900 text-center mb-8">Why Choose Javed Khan?</h2>
@@ -268,11 +359,34 @@
         </a>
     </div>
 
-    <a href="https://wa.me/918306132320?text=Hello%20Javed%2C%20I%20need%20insurance%20help." class="hidden md:flex fixed bottom-6 right-6 w-14 h-14 bg-green-500 rounded-full items-center justify-center text-white shadow-xl z-50 hover:scale-110 transition border-2 border-white">
-        <i class="ph-fill ph-whatsapp-logo text-3xl"></i>
-    </a>
+    <script>
+        function sendToWhatsApp() {
+            // Get Values
+            const vehicleType = document.querySelector('input[name="vehicleType"]:checked')?.value;
+            const fullName = document.getElementById('fullName').value.trim();
+            const mobile = document.getElementById('mobile').value.trim();
+            const dob = document.getElementById('dob').value;
+            const oldPolicy = document.querySelector('input[name="oldPolicy"]:checked')?.value;
+            const errorMsg = document.getElementById('errorMsg');
+
+            // Simple Validation
+            if (!fullName || !mobile) {
+                errorMsg.classList.remove('hidden');
+                // Shake animation logic could go here
+                return;
+            }
+            errorMsg.classList.add('hidden');
+
+            // Format Message
+            // Using %0A for new line
+            const message = `*NEW INSURANCE ENQUIRY*%0A--------------------------------%0A*Vehicle Type:* ${vehicleType}%0A*Name:* ${fullName}%0A*Mobile:* ${mobile}%0A*DOB:* ${dob ? dob : 'Not Provided'}%0A*Old Policy:* ${oldPolicy}%0A--------------------------------%0APlease provide a quote.`;
+
+            // Open WhatsApp
+            const url = `https://wa.me/918306132320?text=${message}`;
+            window.open(url, '_blank');
+        }
+    </script>
 
 </body>
 </html>
-
 
