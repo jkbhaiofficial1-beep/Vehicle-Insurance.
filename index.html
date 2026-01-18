@@ -120,6 +120,7 @@
     <!-- MAIN SERVICES -->
     <section class="py-8 md:py-20 px-4 relative z-20">
         <div class="max-w-7xl mx-auto">
+            <!-- Changed grid-cols-1 to md:grid-cols-3 so it stacks on mobile and spreads on PC -->
             <div class="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-8">
                 
                 <div class="service-card bg-white p-6 md:p-8 rounded-2xl md:rounded-3xl shadow-lg border-t-4 border-brand-yellow flex flex-col items-center text-center">
@@ -162,29 +163,29 @@
                 <!-- Vehicle Type -->
                 <div>
                     <label class="block text-xs font-bold text-gray-500 uppercase tracking-wider mb-3">Select Vehicle Type</label>
-                    <div class="grid grid-cols-3 gap-3">
+                    <div class="grid grid-cols-3 gap-2 xs:gap-3">
                         <!-- Bike -->
                         <label class="relative">
                             <input type="radio" name="vehicleType" value="Bike" class="radio-input absolute opacity-0 w-0 h-0" checked>
-                            <div class="radio-label border-2 border-gray-200 rounded-xl p-3 flex flex-col items-center justify-center gap-2 h-24 hover:border-gray-300">
-                                <i class="ph-fill ph-motorcycle text-2xl text-gray-400"></i>
-                                <span class="text-xs font-bold">Bike</span>
+                            <div class="radio-label border-2 border-gray-200 rounded-xl p-2 xs:p-3 flex flex-col items-center justify-center gap-1 xs:gap-2 h-20 xs:h-24 hover:border-gray-300">
+                                <i class="ph-fill ph-motorcycle text-xl xs:text-2xl text-gray-400"></i>
+                                <span class="text-[10px] xs:text-xs font-bold">Bike</span>
                             </div>
                         </label>
                         <!-- Car -->
                         <label class="relative">
                             <input type="radio" name="vehicleType" value="Car" class="radio-input absolute opacity-0 w-0 h-0">
-                            <div class="radio-label border-2 border-gray-200 rounded-xl p-3 flex flex-col items-center justify-center gap-2 h-24 hover:border-gray-300">
-                                <i class="ph-fill ph-car text-2xl text-gray-400"></i>
-                                <span class="text-xs font-bold">Car</span>
+                            <div class="radio-label border-2 border-gray-200 rounded-xl p-2 xs:p-3 flex flex-col items-center justify-center gap-1 xs:gap-2 h-20 xs:h-24 hover:border-gray-300">
+                                <i class="ph-fill ph-car text-xl xs:text-2xl text-gray-400"></i>
+                                <span class="text-[10px] xs:text-xs font-bold">Car</span>
                             </div>
                         </label>
                         <!-- Commercial -->
                         <label class="relative">
                             <input type="radio" name="vehicleType" value="Commercial Vehicle" class="radio-input absolute opacity-0 w-0 h-0">
-                            <div class="radio-label border-2 border-gray-200 rounded-xl p-3 flex flex-col items-center justify-center gap-2 h-24 hover:border-gray-300">
-                                <i class="ph-fill ph-truck text-2xl text-gray-400"></i>
-                                <span class="text-[10px] font-bold text-center leading-tight">Commercial<br>Vehicle</span>
+                            <div class="radio-label border-2 border-gray-200 rounded-xl p-2 xs:p-3 flex flex-col items-center justify-center gap-1 xs:gap-2 h-20 xs:h-24 hover:border-gray-300">
+                                <i class="ph-fill ph-truck text-xl xs:text-2xl text-gray-400"></i>
+                                <span class="text-[9px] xs:text-[10px] font-bold text-center leading-tight">Commercial<br>Vehicle</span>
                             </div>
                         </label>
                     </div>
@@ -197,7 +198,8 @@
                         <input type="text" id="fullName" placeholder="Enter your name" class="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 font-semibold focus:outline-none focus:border-brand-red focus:ring-1 focus:ring-brand-red transition">
                     </div>
                     
-                    <div class="grid grid-cols-2 gap-4">
+                    <!-- Responsive Grid: Stacks on mobile (grid-cols-1), side-by-side on sm+ (grid-cols-2) -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                         <div>
                             <label class="block text-xs font-bold text-gray-500 uppercase tracking-wider mb-1.5">Mobile Number</label>
                             <input type="tel" id="mobile" placeholder="9876543210" class="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 font-semibold focus:outline-none focus:border-brand-red focus:ring-1 focus:ring-brand-red transition">
@@ -271,7 +273,9 @@
     <section class="py-10 bg-white border-t border-gray-100">
         <div class="max-w-4xl mx-auto px-5">
             <h2 class="text-2xl font-extrabold text-gray-900 text-center mb-8">Why Choose Javed Khan?</h2>
-            <div class="grid grid-cols-2 gap-4 text-sm">
+            
+            <!-- Responsive Grid: Stacks on mobile (grid-cols-1), side-by-side on desktop (md:grid-cols-2) -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
                 <!-- Online Side -->
                 <div class="bg-gray-50 p-5 rounded-2xl border border-gray-200">
                     <div class="text-center font-bold text-gray-400 mb-4 uppercase tracking-widest text-xs">Online Websites</div>
@@ -389,4 +393,5 @@
 
 </body>
 </html>
+
 
