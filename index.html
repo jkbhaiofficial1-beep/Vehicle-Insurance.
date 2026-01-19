@@ -191,6 +191,12 @@
                     </div>
                 </div>
 
+                <!-- NEW FIELD: Vehicle Number -->
+                <div>
+                    <label class="block text-xs font-bold text-gray-500 uppercase tracking-wider mb-1.5">Vehicle Number (Required)</label>
+                    <input type="text" id="vehicleNumber" placeholder="RJ-20-CA-1234" class="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 font-semibold focus:outline-none focus:border-brand-red focus:ring-1 focus:ring-brand-red transition uppercase tracking-widest text-lg">
+                </div>
+
                 <!-- Text Inputs -->
                 <div class="space-y-4">
                     <div>
@@ -236,7 +242,7 @@
                     Send via WhatsApp
                 </button>
                 
-                <p id="errorMsg" class="text-red-500 text-xs text-center font-bold hidden">Please fill all Name and Mobile details!</p>
+                <p id="errorMsg" class="text-red-500 text-xs text-center font-bold hidden">Please fill Vehicle Number, Name and Mobile details!</p>
 
             </div>
         </div>
@@ -367,6 +373,7 @@
         function sendToWhatsApp() {
             // Get Values
             const vehicleType = document.querySelector('input[name="vehicleType"]:checked')?.value;
+            const vehicleNumber = document.getElementById('vehicleNumber').value.trim().toUpperCase();
             const fullName = document.getElementById('fullName').value.trim();
             const mobile = document.getElementById('mobile').value.trim();
             const dob = document.getElementById('dob').value;
@@ -374,7 +381,7 @@
             const errorMsg = document.getElementById('errorMsg');
 
             // Simple Validation
-            if (!fullName || !mobile) {
+            if (!fullName || !mobile || !vehicleNumber) {
                 errorMsg.classList.remove('hidden');
                 // Shake animation logic could go here
                 return;
@@ -383,7 +390,7 @@
 
             // Format Message
             // Using %0A for new line
-            const message = `*NEW INSURANCE ENQUIRY*%0A--------------------------------%0A*Vehicle Type:* ${vehicleType}%0A*Name:* ${fullName}%0A*Mobile:* ${mobile}%0A*DOB:* ${dob ? dob : 'Not Provided'}%0A*Old Policy:* ${oldPolicy}%0A--------------------------------%0APlease provide a quote.`;
+            const message = `*NEW INSURANCE ENQUIRY*%0A--------------------------------%0A*Vehicle Type:* ${vehicleType}%0A*Vehicle No:* ${vehicleNumber}%0A*Name:* ${fullName}%0A*Mobile:* ${mobile}%0A*DOB:* ${dob ? dob : 'Not Provided'}%0A*Old Policy:* ${oldPolicy}%0A--------------------------------%0APlease provide a quote.`;
 
             // Open WhatsApp
             const url = `https://wa.me/918306132320?text=${message}`;
